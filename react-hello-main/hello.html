@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="react/react.js"></script>
+    <script src="react/react-dom.js"></script>
+    <script src="react/babel.js"></script>
+    <script type="text/babel">
+      function App() {
+        return(
+        <div className="text-center">
+          <Team name="real madrid" trophies={14} contry="spain"/>
+          <Team name="barcelone" trophies={5} contry="spain"/>
+          <Team name="real ethiopie" trophies={0} contry="france"/>
+          </div>
+        );
+      }
+      function Greatings(){
+        return <h2 className="alert alert-danger"> hello les enfants</h2>
+      }
+      function Team(props){
+        return(
+          <tr>
+            <td>{props.name}</td>
+            <td>{props.trophies}</td>
+            <td>{props.contry}</td>
+            </tr>
+        );
+      }
+      ReactDOM.render(<App />, document.querySelector("#root"));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+  <div id="root"></div>
+  <script src="react/react.js"></script>
+  <script src="react/react-dom.js"></script>
+  <script src="react/babel.js"></script>
+  <script type="text/babel">
+    const teams = [
+      { name: "Real Madrid", trophies: 14, country: "Spain" },
+      { name: "Barcelona", trophies: 5, country: "Spain" },
+      { name: "Real Ethiopia", trophies: 0, country: "France" }
+    ];
+
+    function App() {
+      return (
+        <div className="text-center">
+          <table className="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">NAME</th>
+                <th scope="col">TROPHIES</th>
+                <th scope="col">COUNTRY</th>
+              </tr>
+            </thead>
+            <tbody>
+              {teams.map(t => (
+                <Team key={t.name} name={t.name} trophies={t.trophies} country={t.country}/>
+              ))}
+            </tbody>
+          </table>
+          <Greetings />
+        </div>
+      );
+    }
+
+    function Greetings() {
+      return <h2 className="alert alert-danger">Hello les enfants</h2>;
+    }
+
+    function Team(props) {
+      return (
+        <tr>
+          <td>{props.name}</td>
+          <td>{props.trophies}</td>
+          <td>{props.country}</td>
+        </tr>
+      );
+    }
+
+    ReactDOM.render(<App />, document.getElementById("root"));
+  </script>
+</body>
+</html>
